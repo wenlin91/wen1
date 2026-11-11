@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en" translate="no" class="notranslate skiptranslate">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="en">
+<title>AI Community — Sunlit Tree</title>
+<style>
+body font,
+body [class*="immersive-translate"],
+body [class*="cye-"]{
+  display:contents!important;
+  font:inherit!important;
+  line-height:inherit!important;
+}
+[data-at-text]::after{content:attr(data-at-text)}
+:root{
+  --green:#0b8457;--red:#c71a1a;--muted:#4b5563;
+  --hdr:6.25rem;--pad:6.25%;
+  --card-bg:#fff;--card-radius:12px;
+  --card-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:linear-gradient(180deg,#e8fbeb,#daf6e0);
+  color:#0b2b22;-webkit-font-smoothing:antialiased;overflow:hidden;
+}
+header.site-header{
+  position:relative;margin-inline:var(--pad);
+  height:var(--hdr);display:flex;flex-direction:column;z-index:50;
+}
+.top-row{
+  display:flex;align-items:center;justify-content:space-between;
+  height:1.2rem;padding-top:.8rem;transform:translateY(2em);
+}
+.logo{display:flex;align-items:center;gap:.5rem}
+.logo img{height:88px;width:auto;border-radius:6px}
+nav.top-nav{
+  position:absolute;left:calc(22.857% - 2ch);display:flex;
+  gap:calc(1.25rem + 4ch);align-items:center;
+}
+nav.top-nav a{text-decoration:none}
+.nav-item{font-size:18px;color:var(--muted);font-weight:600;text-decoration:none}
+.nav-item:hover,.sidebar-item:hover{color:var(--green)}
+.banner{display:flex;align-items:center;justify-content:center;height:3rem;transform:translateY(2em)}
+.slogan{font-size:28px;color:var(--red);font-weight:800;transform:translateY(2em)}
+.main{display:flex;margin-top:var(--hdr)}
+.sidebar{
+  width:20%;min-width:180px;padding-top:calc(11rem - var(--hdr));
+  position:fixed;top:var(--hdr);left:var(--pad);bottom:0;
+}
+.sidebar-item{
+  display:block;width:100%;padding:.6rem .75rem;margin-bottom:.15rem;
+  color:var(--muted);font-size:16px;border-radius:8px;
+  text-decoration:none;text-align:left;transition:background .2s,color .2s;
+}
+.sidebar-item:hover{background:#d8f3dc}
+.sidebar-textbook{margin:2em 0 0 .75rem;color:#2d6a4f;font:700 18px 'Times New Roman',serif}
+.sidebar-textbook a{color:inherit}
+.content-wrap{margin-left:calc(var(--pad) + 20%);width:calc(73.75% - 12px)}
+.categories-row{
+  position:fixed;top:11rem;left:26.25%;right:6.25%;height:2.4rem;
+  display:flex;align-items:center;justify-content:center;color:var(--red);
+  font-weight:700;z-index:46;background:rgba(255,255,255,.85);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+.categories-center{font-size:18px}
+.scroll-container{
+  position:absolute;top:13.4rem;left:calc(var(--pad) + 20%);
+  right:var(--pad);bottom:0;overflow-y:auto;padding:1rem 2ch 1rem 0;
+}
+.blog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.blog-link{
+  display:flex;min-height:96px;align-items:center;padding:1rem 1.15rem;
+  background:var(--card-bg);border-radius:var(--card-radius);
+  box-shadow:var(--card-shadow);color:inherit;text-decoration:none;
+  font-size:16px;line-height:1.55;transition:transform .2s,box-shadow .2s;
+}
+.blog-link:hover{transform:translateY(-3px);box-shadow:0 9px 22px rgba(0,0,0,.1)}
+.gallery-section{scroll-margin-top:1rem;margin-top:2rem}
+.gallery-title{margin:0 0 .85rem;color:#c71a1a;font-size:1.2rem}
+.image-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem}
+.image-card{min-width:0;overflow:hidden;border-radius:10px;background:#fff;box-shadow:var(--card-shadow);color:inherit;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.image-card:hover{transform:translateY(-3px);box-shadow:0 9px 22px rgba(0,0,0,.12)}
+.image-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#edf3ef}
+.image-name{display:block;padding:.5rem .55rem;overflow-wrap:anywhere;font-size:.8rem;line-height:1.35;text-align:center}
+.logo-footer{text-align:center;margin-top:2rem}
+.logo-img{display:block;max-width:100%;height:auto;border-radius:6px;margin:0 auto .5rem}
+.logo-slogan{margin-top:.5rem;color:var(--muted)}
+.footer-spacer{height:2rem}
+.footer-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:2rem;margin-top:1.5rem}
+.footer-nav a,.site-footer a{color:inherit}
+.site-footer{text-align:center;padding:2.5rem 0;margin-top:2rem;color:var(--muted)}
+@media(max-width:1024px){
+  body{display:flex;flex-direction:column;overflow:hidden}
+  header.site-header{margin-inline:0;padding:0 1rem}
+  .top-row{height:auto;min-height:1.2rem;gap:.75rem;flex-wrap:wrap;transform:translateY(2em)}
+  .logo img{height:clamp(48px,8vw,72px)}
+  nav.top-nav{
+    position:static;flex:1 1 auto;min-width:0;flex-wrap:wrap;
+    justify-content:flex-start;gap:.5rem 5ch;transform:translateX(6ch);
+  }
+  .nav-item,.sidebar-item{font:400 16px 'Segoe UI',Arial,sans-serif}
+  .nav-item{white-space:nowrap}
+  .banner{height:auto;min-height:3rem;padding:.5rem 0}
+  .slogan{max-width:100%;font-size:clamp(1rem,3vw,1.75rem);text-align:center;transform:translateY(1em)}
+  .main{display:flex;flex:1;flex-direction:column;min-height:0;margin-top:1rem}
+  .sidebar{position:relative;top:auto;left:auto;bottom:auto;width:100%;min-width:0;padding:calc(.5rem + 2em) 1rem .5rem}
+  .sidebar-item{display:inline-block;width:auto;margin:.15rem .25rem;padding:.5rem .65rem}
+  .sidebar-textbook{display:inline-block;margin:.5rem .75rem}
+  .content-wrap{display:flex;flex:1;flex-direction:column;min-height:0;margin-left:0;width:100%}
+  .categories-row{position:static;flex:none;height:auto;min-height:2.4rem;padding:.5rem 0}
+  .scroll-container{position:relative;top:auto;left:auto;right:auto;bottom:auto;flex:1;min-height:0;overflow-y:auto;padding:1rem}
+  .image-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  header.site-header{height:auto}
+  .top-row{gap:6px}
+  .logo img{height:48px}
+  nav.top-nav{width:100%;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 5ch;transform:translate(3ch,-2em)}
+  .nav-item{text-align:center}
+  .blog-grid{grid-template-columns:1fr;gap:.6rem}
+  .blog-link{min-height:72px;padding:.85rem 1rem;font-size:15px}
+  .image-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem}
+  .image-name{font-size:.75rem}
+  .footer-nav{gap:1rem}
+}
+@media(max-width:768px) and (orientation:portrait){
+  body{
+    padding-top:env(safe-area-inset-top);
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  .main{margin-top:-4em}
+  .top-row{height:auto;min-height:42px;padding:12px 0 8px;flex-wrap:wrap;gap:8px 12px;transform:translateY(2em)}
+  .top-row .logo{order:2;flex:0 0 100%;justify-content:flex-start;margin-left:1ch;position:relative;left:-1ch}
+  .logo img{height:auto;width:clamp(52px,12vw,76px);aspect-ratio:1}
+  nav.top-nav{
+    position:static;order:1;flex:0 0 100%;width:100%;min-width:0;
+    justify-content:space-between;flex-flow:row nowrap;gap:3ch;transform:translateY(-1em);
+  }
+  nav.top-nav .nav-item{
+    flex:1 1 20%;min-width:0;text-align:center;
+    font:400 16px 'Segoe UI',Arial,sans-serif;
+    letter-spacing:normal;
+    transform:translateX(var(--menu-shift,0ch));
+  }
+  .nav-item[href="blog.html"]{position:fixed}
+  .nav-item[href="pages/Join-Login.html"]{--menu-shift:-1ch}
+  .nav-item[href="prompt.html"]{--menu-shift:6ch}
+  .nav-item[href="gv1.html"]{--menu-shift:-1ch}
+  .nav-item[href="life.html"]{--menu-shift:2ch}
+  nav.top-nav .nav-item:last-child{transform:translateX(var(--menu-shift,0ch))}
+  .sidebar{position:relative;left:3ch}
+  .sidebar .sidebar-item{transform:translateX(5ch)}
+  .sidebar .sidebar-item{translate:0 -1em}
+  .sidebar .sidebar-item:nth-child(7),
+  .sidebar .sidebar-item:nth-child(8){transform:translateX(1ch)}
+  .sidebar-textbook{position:relative;top:0;translate:0 -1em;margin:.5rem .75rem 0}
+  .sidebar-textbook a{text-decoration:none}
+  .banner{transform:translateY(0)}
+  .slogan{transform:none;position:relative;top:-2.2em;left:3ch;font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="site-header" data-at-lock data-at-skip>
+  <div class="top-row">
+    <a class="logo" href="./index.html" aria-label="Back to home">
+      <img src="./ok012_a.png" alt="Logo" onerror="this.src='https://picsum.photos/seed/logo/120/40'">
+    </a>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a href="blog.html" class="nav-item">Blog</a>
+      <a href="prompt.html" class="nav-item">Prompt</a>
+      <a href="life.html" class="nav-item">Life</a>
+      <a href="gv1.html" class="nav-item" aria-current="page">Community</a>
+      <a href="pages/Join-Login.html" class="nav-item" data-at-text="Join &amp; Login" aria-label="Join &amp; Login"></a>
+    </nav>
+  </div>
+  <div class="banner"><div class="slogan">Learn and Practice AI Skills!</div></div>
+</header>
+<main class="main" role="main">
+  <aside id="sidebar" class="sidebar" aria-label="Sidebar">
+    <a class="sidebar-item" href="#gallery-life" data-gallery-target="gallery-life" aria-controls="gallery-life" aria-expanded="false">Life AI</a>
+    <a class="sidebar-item" href="#gallery-health" data-gallery-target="gallery-health" aria-controls="gallery-health" aria-expanded="false">Health AI</a>
+    <a class="sidebar-item" href="#gallery-work" data-gallery-target="gallery-work" aria-controls="gallery-work" aria-expanded="false">Work AI</a>
+    <a class="sidebar-item" href="#gallery-campus" data-gallery-target="gallery-campus" aria-controls="gallery-campus" aria-expanded="false">Campus AI</a>
+    <a class="sidebar-item" href="#gallery-image" data-gallery-target="gallery-image" aria-controls="gallery-image" aria-expanded="false">Image AI</a>
+    <a class="sidebar-item" href="#gallery-video" data-gallery-target="gallery-video" aria-controls="gallery-video" aria-expanded="false">Video AI</a>
+    <a class="sidebar-item" href="#gallery-audio" data-gallery-target="gallery-audio" aria-controls="gallery-audio" aria-expanded="false">Audio AI</a>
+    <a class="sidebar-item" href="./prompt.html">Prompt</a>
+    <div class="sidebar-textbook"><a href="pages/05.html">Textbook<wbr> Updates</a></div>
+  </aside>
+  <section class="content-wrap">
+    <div class="categories-row" role="region" aria-label="Category heading">
+      <div class="categories-center">AI-Community Links</div>
+    </div>
+    <div class="scroll-container">
+      <nav class="blog-grid" aria-label="Community articles">
+        <a class="blog-link" href="pages1/1art.html">1. A Practical Discussion on AI-Driven Blogging</a>
+        <a class="blog-link" href="pages1/2art.html">2. Getting Started with AI Prompt Skills</a>
+        <a class="blog-link" href="pages1/3art.html">3. How can we make sure AI-written blogs are any good</a>
+        <a class="blog-link" href="pages1/4art.html">4. How to choose topics for AI-written blogs</a>
+        <a class="blog-link" href="pages1/5art.html">5. How to Choose Your Own AI Tools</a>
+        <a class="blog-link" href="pages1/6art.html">6. The New Evolution of Data, Information, and Knowledge in the AI Era</a>
+        <a class="blog-link" href="pages1/7art.html">7. What AI will bring to our future</a>
+        <a class="blog-link" href="pages1/8art.html">8. What impact does AI have on our lives</a>
+        <a class="blog-link" href="pages1/9art.html">9. What insights does AI development give us</a>
+      </nav>
+      <div id="image-galleries" aria-label="AI category image galleries"></div>
+      <div class="logo-footer">
+        <a href="./index.html" aria-label="Back to home">
+          <img src="./ok012_a.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+        </a>
+        <div class="logo-slogan">Follow me, save me, and easily step into the AI era!</div>
+      </div>
+      <div class="footer-spacer"></div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="pages/Website-collaboration.html">Website collaboration</a>
+        <a href="pages/About-Us.html">About Us</a>
+        <a href="pages/Partners-Collaborators.html">Partners and Collaborators</a>
+      </nav>
+      <footer class="site-footer">
+        Copyright © 2026-08-16 &nbsp;|&nbsp;
+        <a href="mailto:udedv12@outlook.com">Contact Us</a>
+      </footer>
+    </div>
+  </section>
+</main>
+<script>
+(() => {
+  const categories = [
+    { id: 'life', title: 'Life AI', directory: 'life', files: ['app.karpo.ai.jpeg','elsaspeak.com.jpeg','flash.co.jpeg','kindroid.ai.jpeg','pi.ai.jpeg','replika.com.jpeg','sleepcycle.com.jpeg','thefabulous.co.jpeg','wanderboat.ai.jpeg','youper.ai.jpeg'] },
+    { id: 'health', title: 'Health AI', directory: 'Health', files: ['ada.com.jpeg','doctronic.com.jpeg','docus.ai.jpeg','exscientia.ai.jpeg','healthtap.com.jpeg','healz.ai.jpeg','khealth.com.jpeg','lunit.io.jpeg','mediktor.com.jpeg','suki.ai.jpeg','tempus.com.jpeg','ubie.ai.jpeg','viz.ai.jpeg','webmd.com.jpeg','whoop.com.jpeg'] },
+    { id: 'work', title: 'Work AI', directory: 'work', files: ['chatgpt.com.jpeg','claude.ai.jpeg','clickup.com.jpeg','deepl.com.jpeg','gemini.google.com.jpeg','github.com.jpeg','notion.so.jpeg','otter.ai.jpeg','slack.com.jpeg','zapier.com.jpeg'] },
+    { id: 'campus', title: 'Campus AI', directory: 'campus', files: ['century.tech.jpeg','coursera.org.jpeg','duolingo.com.jpeg','edu.google.com.jpeg','iflytek.com.jpeg','khanacademy.org.jpeg','magicschool.ai.jpeg','quizlet.com.jpeg','schoolai.com.jpeg','squirrelai.com.jpeg'] },
+    { id: 'image', title: 'Image AI', directory: 'image', files: ['adobe.com.jpeg','bfl.ai.jpeg','bing.com.jpeg','ideogram.ai.jpeg','leonardo.ai.jpeg','midjourney.com.jpeg','openart.ai.jpeg','recraft.ai.jpeg','seaart.ai.jpeg','stability.ai.jpeg'] },
+    { id: 'video', title: 'Video AI', directory: 'video', files: ['genmo.ai.jpeg','hailuoai.video.jpeg','heygen.com.jpeg','invideo.io.jpeg','klingai.com.jpeg','lumalabs.ai.jpeg','pika.art.jpeg','pixverse.ai.jpeg','runwayml.com.jpeg','synthesia.io.jpeg'] },
+    { id: 'audio', title: 'Audio AI', directory: 'aodio', files: ['aiva.ai.jpeg','descript.com.jpeg','elevenlabs.io.jpeg','lalal.ai.jpeg','murf.ai.jpeg','podcastle.ai.jpeg','riverside.fm.jpeg','speechify.com.jpeg','suno.com.jpeg','udio.com.jpeg'] }
+  ];
+  const galleryRoot = document.getElementById('image-galleries');
+  galleryRoot.innerHTML = categories.map(({ id, title, directory, files }) => `
+    <section class="gallery-section" id="gallery-${id}" aria-labelledby="gallery-title-${id}" hidden>
+      <h2 class="gallery-title" id="gallery-title-${id}">${title}</h2>
+      <div class="image-grid">
+        ${files.map(file => {
+          const imageUrl = `aituji/${directory}/${file}`;
+          const domain = file.replace(/\.jpeg$/i, '');
+          const externalUrl = `https://${domain}`;
+          return `<a class="image-card" href="${externalUrl}" target="_blank" rel="noopener noreferrer">
+            <img src="${imageUrl}" alt="${file}" loading="lazy">
+            <span class="image-name">${domain}</span>
+          </a>`;
+        }).join('')}
+      </div>
+    </section>`).join('');
+
+  const scrollContainer = document.querySelector('.scroll-container');
+  const sidebar = document.getElementById('sidebar');
+  sidebar.addEventListener('click', event => {
+    const link = event.target.closest('[data-gallery-target]');
+    if (!link) return;
+    const target = document.getElementById(link.dataset.galleryTarget);
+    if (!target) return;
+    event.preventDefault();
+    const expanded = target.hidden;
+    target.hidden = !expanded;
+    link.setAttribute('aria-expanded', String(expanded));
+    link.classList.toggle('active', expanded);
+    if (expanded && window.matchMedia('(max-width: 1024px)').matches) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (expanded) {
+      const top = target.getBoundingClientRect().top - scrollContainer.getBoundingClientRect().top + scrollContainer.scrollTop;
+      scrollContainer.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+})();
+
+(() => {
+  const header = document.querySelector('header[data-at-lock]');
+  if (!header || !('MutationObserver' in window)) return;
+
+  const lockedMarkup = header.innerHTML;
+  const observer = new MutationObserver(() => {
+    if (header.innerHTML !== lockedMarkup) header.innerHTML = lockedMarkup;
+  });
+
+  observer.observe(header, {
+    attributes: true,
+    childList: true,
+    characterData: true,
+    subtree: true
+  });
+})();
+</script>
+</body>
+</html>

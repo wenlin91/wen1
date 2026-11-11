@@ -1,0 +1,412 @@
+ <!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate skiptranslate">
+<head>
+<meta charset="UTF-8" />
+<!-- Responsive viewport: supports safe areas and accessible pinch zoom. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no, email=no, address=no">
+<meta name="google" content="notranslate">
+<meta http-equiv="Content-Language" content="en">
+<title>AI Prompt Practice — Sunlit Tree</title>
+<style>
+html { scroll-behavior: smooth; }
+body font,
+body [class*="immersive-translate"],
+body [class*="cye-"] {
+display: contents !important;
+font: inherit !important;
+line-height: inherit !important;
+}
+[data-at-text]::after { content: attr(data-at-text); }
+body {
+background: linear-gradient(180deg, #edf9ee 0%, #dbeedc 42%, #d2ebd1 100%);
+color: #18332a;
+font-family: 'Segoe UI', Arial, sans-serif;
+}
+.page-shell, .header-inner {
+width: min(100%, 1600px);
+margin: 0 auto;
+padding-left: 6.25%;
+padding-right: 6.25%;
+}
+.header-shell { position: relative; z-index: 50; pointer-events: none; }
+.header-inner { padding-top: 6px; pointer-events: auto; }
+.nav-row { height: 42px; display: flex; align-items: center; transform: translateY(2em); }
+.logo-wrap { width: 15%; min-width: 90px; display: flex; align-items: center; }
+.logo-wrap img {
+width: 84px; height: 80px; object-fit: contain;
+border-radius: 8px; box-shadow: 0 4px 10px rgba(16, 82, 48, 0.12);
+}
+.top-nav {
+width: calc(85% - 12ch); display: flex; justify-content: space-evenly;
+align-items: center; column-gap: 1ch; transform: translateX(-9ch);
+}
+nav.top-nav a { text-decoration: none; }
+.top-nav a {
+font-size: 1.05rem; color: #1d2d25; font-weight: 600;
+letter-spacing: 0.02em; transition: color 0.2s ease;
+}
+.top-nav a:hover { color: #2f8a5b; }
+.banner-row {
+display: flex; align-items: center; justify-content: center;
+height: 52px; text-align: center; transform: translateY(2em);
+}
+.slogan {
+font-size: clamp(1.3rem, 1.8vw, 1.9rem); color: #d91d1d;
+font-weight: 800; letter-spacing: 0.04em; transform: translateX(-8ch);
+}
+.content-wrap { padding: 18px 0; }
+.content-wrap img, main img { max-width: 100%; height: auto; }
+.prompt-box {
+width: min(100%, 980px); margin: 2em auto 0; position: sticky; bottom: 8px;
+background: rgba(255, 255, 255, 0.7);
+border: 1px solid rgba(95, 146, 108, 0.26);
+-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+border-radius: 20px; box-shadow: 0 10px 22px rgba(58, 98, 70, 0.12);
+overflow: hidden;
+}
+.prompt-input-wrap { position: relative; }
+.prompt-input {
+width: 100%; min-height: 303px; resize: vertical;
+border: none; outline: none; background: transparent;
+font-size: 1rem; line-height: 1.7; color: #1f2a25;
+padding: 14px 76px 14px 18px; text-indent: 4ch;
+}
+.prompt-input::placeholder { color: #8b9690; opacity: 1; text-align: center; text-indent: 0; }
+.composer-bar { position: absolute; inset: 0; pointer-events: none; }
+.tool-group { display: flex; align-items: center; gap: 10px; color: #1c3a2c; font-size: 0.96rem; }
+.tool-btn, .submit-btn, .action-icon {
+border: none; cursor: pointer;
+transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.tool-btn:hover, .submit-btn:hover, .action-icon:hover { transform: translateY(-1px); }
+.tool-btn {
+display: inline-flex; align-items: center; gap: 6px;
+background: rgba(255, 255, 255, 0.3);
+border: 1px solid rgba(66, 125, 82, 0.15);
+border-radius: 999px; padding: 8px 12px;
+}
+.tool-btn .icon { font-size: 1.2rem; line-height: 1; }
+.submit-btn {
+position: absolute; right: 14px; bottom: 14px; pointer-events: auto;
+width: 52px; height: 52px; border-radius: 50%;
+display: inline-flex; align-items: center; justify-content: center;
+background: linear-gradient(135deg, #8ac69a 0%, #4d9b73 100%);
+color: white; box-shadow: 0 10px 20px rgba(83, 150, 93, 0.25);
+}
+.action-bar {
+display: flex; align-items: center; justify-content: center;
+flex-wrap: wrap; gap: 10px; padding: 10px 0 6px;
+}
+.action-icons { display: flex; align-items: center; gap: 10px; position: relative; left: -12ch; }
+.action-icon {
+width: 30px; height: 30px; border-radius: 50%;
+background: rgba(255, 255, 255, 0.5);
+border: 1px solid rgba(62, 114, 80, 0.15); color: #1e3d30;
+}
+.note { text-align: center; font-size: 0.88rem; color: #3f514a; margin: 0; }
+.back-btn {
+position: fixed; right: 20px; bottom: 20px; z-index: 1000;
+padding: 11px 16px; border-radius: 999px;
+background: #0b8457; color: #fff; font-weight: 700;
+text-decoration: none; box-shadow: 0 6px 18px #18332a30;
+}
+@media (max-width: 1024px) {
+.top-nav { width: 85%; transform: translateX(-4ch); gap: calc(clamp(8px, 2vw, 24px) + 1ch); }
+.top-nav a { font-size: clamp(0.875rem, 1.5vw, 1.05rem); }
+.slogan { transform: none; font-size: clamp(1.1rem, 3vw, 1.7rem); }
+.prompt-box { width: min(calc(100% - 4ch), 980px); }
+}
+@media (max-width: 768px) {
+.page-shell, .header-inner {
+padding-left: clamp(1rem, 4vw, 4%);
+padding-right: clamp(1rem, 4vw, 4%);
+}
+.nav-row { height: auto; min-height: 42px; padding: 12px 0 8px; flex-wrap: wrap; gap: 8px 12px; }
+.logo-wrap { width: auto; min-width: 0; }
+.logo-wrap img { width: clamp(52px, 12vw, 76px); height: auto; aspect-ratio: 1; }
+.top-nav {
+width: 100%; justify-content: flex-start; flex-wrap: wrap;
+gap: 6px calc(clamp(12px, 4vw, 24px) + 1ch); transform: translate(3ch, -2em);
+}
+.top-nav a { font-size: clamp(0.875rem, 3vw, 1rem); line-height: 1.4; white-space: nowrap; }
+.banner-row { height: auto; min-height: 52px; padding: 8px 0; }
+.slogan { max-width: 100%; padding: 0 8px; text-align: center; font-size: clamp(1rem, 4vw, 1.5rem); }
+.content-wrap { padding-top: 32px; }
+.composer-bar { flex-direction: column; align-items: stretch; }
+.tool-group { justify-content: space-between; flex-wrap: wrap; }
+.submit-btn { align-self: flex-end; }
+}
+@media (max-width: 768px) and (orientation: portrait) {
+  .top-nav {
+    display: flex;
+    order: 1;
+    flex: 0 0 100%;
+    width: 100%;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    gap: 3ch;
+    transform: translateY(-1em);
+  }
+  .top-nav a {
+    flex: 1 1 20%; min-width: 0; text-align: center;
+    font: 400 16px 'Segoe UI', Arial, sans-serif;
+    letter-spacing: normal;
+    transform: translateX(var(--menu-shift, 0ch));
+  }
+  .top-nav a[href="blog.html"] { position: fixed; }
+  .top-nav a[href="pages/Join-Login.html"] { --menu-shift:-1ch; }
+  .top-nav a[href="prompt.html"] { --menu-shift: 6ch; }
+  .top-nav a[href="gv1.html"] { --menu-shift: -1ch; }
+  .top-nav a[href="life.html"] { --menu-shift: 2ch; }
+  .top-nav a:last-child { transform: translateX(var(--menu-shift, 0ch)); }
+  .logo-wrap { order: 2; flex: 0 0 100%; justify-content: flex-start; margin-left: 1ch; }
+  .banner-row { transform: translateY(1em); }
+  .slogan { position: relative; top: -2.2em; left: 3ch; font-size: 20px; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;   
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent; 
+}
+:root {
+  --wrap:   1200px;                          
+  --gutter: clamp(16px, 4vw, 32px);          
+  --radius: 8px;
+  --fs-h1:   clamp(1.75rem, 1.1rem + 2.6vw, 3rem);
+  --fs-h2:   clamp(1.40rem, 1.05rem + 1.8vw, 2.25rem);
+  --fs-h3:   clamp(1.20rem, 1.00rem + 1.2vw, 1.6rem);
+  --fs-body: clamp(0.94rem, 0.9rem + 0.3vw, 1.05rem);
+  --app-height: 100vh;                       
+}
+@supports (height: 100dvh) { :root { --app-height: 100dvh; } }
+:where(body) {
+  margin: 0;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  overflow-wrap: break-word;                 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left:  env(safe-area-inset-left);   
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+:where(img, video, canvas, svg, iframe) { max-width: 100%; }
+:where(img, video) { height: auto; display: block; }
+:where(iframe) { width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0; }
+:where(table) { width: 100%; border-collapse: collapse; }
+:where(pre, code) { max-width: 100%; overflow-x: auto; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+:where(a, button, input, select, textarea, label, [role="button"]) {
+  touch-action: manipulation;
+}
+:where(.btn, button, .action-icon, .tool-btn) {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 44px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+:where(input, select, textarea) { font-size: max(16px, 1em); }
+.auto-grid {
+  display: grid;
+  gap: var(--gutter);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+.auto-flex { display: flex; flex-wrap: wrap; gap: var(--gutter); }
+.auto-flex > * { flex: 1 1 260px; }
+.textbook-updates {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+}
+.textbook-updates a {
+  color: #2f8a5b;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+.textbook-updates a:hover {
+  background: rgba(47, 138, 91, 0.1);
+}
+.prompt-input {
+  min-height: clamp(180px, 40vh, 303px);
+}
+.back-btn {
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  padding: max(10px, 10px) max(14px, 14px);
+}
+@media (max-width: 1200px) {
+  :root { --wrap: 960px; }
+}
+@media (max-width: 992px)  {
+  :root { --wrap: 760px; }
+  .action-icons { left: 0; }
+}
+@media (max-width: 768px) {
+  :root { --wrap: 100%; --gutter: 18px; }
+  .row { flex-direction: column; }
+  .col { width: 100%; }
+  .hide-sm { display: none !important; }
+  .show-sm { display: block !important; }
+  .action-bar {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0 80px;
+  }
+  .action-icons {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .textbook-updates {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .prompt-box {
+    position: relative;
+    bottom: auto;
+    margin: 2em auto 20px;
+    border-radius: 16px;
+  }
+  .prompt-input {
+    padding: 14px 68px 14px 16px;
+    text-indent: 2ch;
+  }
+  .submit-btn {
+    width: 44px;
+    height: 44px;
+    right: 12px;
+    bottom: 12px;
+  }
+}
+@media (max-width: 768px) and (orientation: portrait) {
+  .content-wrap { padding-top: 0; }
+  .prompt-box { margin-top: 0; }
+}
+@media (max-width: 480px) {
+  :root { --gutter: 14px; --fs-body: 0.94rem; }
+  .hide-xs { display: none !important; }
+  .page-shell, .header-inner {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .action-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  .back-btn {
+    right: 12px;
+    bottom: 12px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-height: 480px) and (orientation: landscape) {
+  :root { --fs-h1: 1.6rem; --fs-h2: 1.3rem; }
+  .prompt-input {
+    min-height: 160px;
+  }
+  .back-btn {
+    bottom: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  .no-print, .btn, nav, footer, .back-btn { display: none !important; }
+  body { font-size: 12pt; background: #fff; }
+}
+</style>
+</head>
+<body class="font-sans">
+  <header class="header-shell" data-at-lock data-at-skip>
+    <div class="header-inner">
+      <div class="nav-row">
+        <a class="logo-wrap" href="./index.html" aria-label="Back to home">
+          <img src="./ok012_a.png" alt="Logo" />
+        </a>
+        <nav class="top-nav" aria-label="Primary navigation">
+          <a href="blog.html">Blog</a>
+          <a href="prompt.html">Prompt</a>
+          <a href="life.html">Life</a>
+          <a href="gv1.html">Community</a>
+          <a href="pages/Join-Login.html" data-at-text="Join&amp;Login" aria-label="Join&amp;Login"></a>
+        </nav>
+      </div>
+      <div class="banner-row">
+        <div class="slogan">Learn and Practice AI Skills!</div>
+      </div>
+    </div>
+  </header>
+  <main class="page-shell content-wrap">
+    <section class="prompt-box" aria-label="Prompt input area">
+      <div class="prompt-input-wrap">
+        <textarea id="promptInput" class="prompt-input" aria-label="Prompt input"
+          placeholder="Enter your prompt, then click submit to generate content."></textarea>
+        <div class="composer-bar">
+          <button id="submitBtn" class="submit-btn" type="button" aria-label="Submit prompt"
+            data-destinations="https://www.deepl.com,https://www.procore.com,https://suki.ai,https://slack.com,https://viz.ai,https://eliseai.com,https://www.harvey.ai,https://claude.ai,https://clickup.com,https://youper.ai">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path d="M3 11.5L20 3L15.5 20L11.5 13.5L3 11.5Z" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <div class="action-bar" aria-label="Generated results actions">
+      <div class="action-icons">
+        <button class="action-icon" type="button" aria-label="Copy">⧉</button>
+        <button class="action-icon" type="button" aria-label="Save">★</button>
+        <button class="action-icon" type="button" aria-label="Redo">↺</button>
+        <button class="action-icon" type="button" aria-label="Like">👍</button>
+        <button class="action-icon" type="button" aria-label="Dislike">👎</button>
+        <button class="action-icon" type="button" aria-label="Share">⇪</button>
+      </div>
+      <p class="note">This demo has no AI generation service connected.</p>
+      <nav class="textbook-updates" aria-label="Textbook updates">
+        <strong class="updates-label">Textbook Updates</strong>
+        <strong class="updates-prompt">AI-prompt:</strong>
+        <a href="pages/05.html">5. Choose AI tools</a>
+        <a href="pages/06.html">6. Prompt skills</a>
+        <a href="pages/07.html">7. Data and knowledge</a>
+        <a href="pages/11.html">More articles…</a>
+      </nav>
+    </div>
+  </main>
+  <a class="back-btn" href="./index.html">Back to home</a>
+  <script>
+    (() => {
+      const header = document.querySelector('header[data-at-lock]');
+      if (!header || !('MutationObserver' in window)) return;
+
+      const lockedMarkup = header.innerHTML;
+      const observer = new MutationObserver(() => {
+        if (header.innerHTML !== lockedMarkup) header.innerHTML = lockedMarkup;
+      });
+
+      observer.observe(header, {
+        attributes: true,
+        childList: true,
+        characterData: true,
+        subtree: true
+      });
+    })();
+  </script>
+  <script src="assets/generator.js" defer></script>
+</body>
+
+</html>
